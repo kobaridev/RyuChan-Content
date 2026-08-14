@@ -1,7 +1,7 @@
 ---
 slug: testing-frontend-github-actions
 title: 前端仓库如何测试与触发 GitHub Actions
-description: 详细介绍前端项目中测试和触发 GitHub Actions 工作流的多种方式，包括手动触发、API 触发、本地测试以及最佳实践
+description: 详细介绍前端项目中测试和触发 GitHub Actions 工作流的多种方式，包括手动触发、API 触发、本地测试以及最佳实践。
 pubDate: 2026-08-15T00:00
 image: /image/image4.webp
 badge: DevOps
