@@ -10,15 +10,15 @@ jobs:
     steps:
       - name: Debug - Show target info
         run: |
-          echo "Target: ${{ secrets.FRONTEND_REPO_OWNER }}/${{ secrets.FRONTEND_REPO_NAME }}"
-          echo "Branch: ${{ secrets.FRONTEND_BRANCH }}"
+          echo "Target: ${{ vars.FRONTEND_REPO_OWNER }}/${{ vars.FRONTEND_REPO_NAME }}"
+          echo "Branch: ${{ vars.FRONTEND_BRANCH }}"
           echo "Token length: ${#DISPATCH_TOKEN}"
 
       - name: Trigger frontend deploy
         run: |
-          BRANCH="${{ secrets.FRONTEND_BRANCH }}"
-          OWNER="${{ secrets.FRONTEND_REPO_OWNER }}"
-          REPO="${{ secrets.FRONTEND_REPO_NAME }}"
+          BRANCH="${{ vars.FRONTEND_BRANCH }}"
+          OWNER="${{ vars.FRONTEND_REPO_OWNER }}"
+          REPO="${{ vars.FRONTEND_REPO_NAME }}"
           TOKEN="${{ secrets.DISPATCH_TOKEN }}"
 
           HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" -X POST \
