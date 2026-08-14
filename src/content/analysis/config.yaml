@@ -1,0 +1,7 @@
+# 统计分析模块开关
+# enable: 是否启用统计分析
+# provider: 启用的 provider（umami-head/claity），实际配置在 provider/ 目录
+enable: true
+provider:
+- umami-head
+- claity

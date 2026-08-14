@@ -1,0 +1,31 @@
+# 导航分组03：娱乐资源
+category: 娱乐资源
+icon: lucide:image
+navigations:
+- name: Wallhaven
+  avatar: https://wallhaven.cc/favicon.ico
+  description: 高质量壁纸分享社区
+  url: https://wallhaven.cc/
+  category: 壁纸资源
+  id: ENT001
+  badge: 海量高清壁纸
+  badgeIcon: lucide:image
+  badgeColor: amber
+- name: 夸克圈
+  avatar: https://api.iconify.design/material-symbols/cloud-outline.svg
+  description: 影视资源分享平台
+  url: https://www.kuakeq.com
+  category: 影视资源
+  id: ENT002
+  badge: 丰富的影视资源
+  badgeIcon: lucide:film
+  badgeColor: rose
+- name: 宝可梦节点
+  avatar: https://love.52pokemon66.cc/favicon.ico
+  description: 网络代理服务
+  url: https://love.p6m6.com/
+  category: 代理服务
+  id: ENT003
+  badge: 好用的加速器
+  badgeIcon: lucide:zap
+  badgeColor: amber

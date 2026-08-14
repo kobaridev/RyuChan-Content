@@ -1,0 +1,5 @@
+# 评论模块开关
+# enable: 是否启用评论功能
+# provider: 当前选用的评论 provider（twikoo/waline/giscus），实际参数在 provider/ 目录
+enable: true
+provider: twikoo

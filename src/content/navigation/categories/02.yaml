@@ -1,0 +1,85 @@
+# 导航分组02：服务平台
+category: 服务平台
+icon: lucide:server
+navigations:
+- name: DigitalPlat
+  avatar: https://domain.digitalplat.org/favicon.ico
+  description: 免费域名注册
+  url: https://dash.domain.digitalplat.org/panel/main
+  category: 域名管理
+  id: SRV001
+  badge: 免费好用
+  badgeIcon: lucide:gift
+  badgeColor: amber
+- name: Cloudflare
+  avatar: https://www.cloudflare.com/favicon.ico
+  description: 全球领先的CDN和安全服务
+  url: https://dash.cloudflare.com/login
+  category: 域名管理
+  id: SRV002
+  badge: 性能和安全兼备
+  badgeIcon: lucide:shield
+  badgeColor: sky
+- name: EdgeOne
+  avatar: https://edgeone.ai/favicon.ico
+  description: 国内CDN和边缘计算服务
+  url: https://console.edgeone.cn/login
+  category: 开发工具
+  id: SRV003
+  badge: 国内访问优化
+  badgeIcon: lucide:zap
+  badgeColor: amber
+- name: Spaceship
+  avatar: https://ts2.tc.mm.bing.net/th/id/ODF.6IsOBgeiOcwksn0K-LVOiw
+  description: A domain odyssey
+  url: https://www.spaceship.com/
+  category: 域名管理
+  id: SRV004
+  badge: 新兴域名注册商
+  badgeIcon: lucide:rocket
+  badgeColor: rose
+- name: Waline
+  avatar: https://waline.js.org/favicon.ico
+  description: 简洁、安全的评论系统
+  url: https://waline.js.org/
+  category: 评论服务
+  id: SRV005
+  badge: 轻量级评论
+  badgeIcon: lucide:message-square
+  badgeColor: amber
+- name: Giscus
+  avatar: https://avatars.githubusercontent.com/ml/9968?s=82&v=4
+  description: GitHub Discussions 评论系统
+  url: https://giscus.app/zh-CN
+  category: 评论服务
+  id: SRV006
+  badge: 基于 GitHub
+  badgeIcon: lucide:github
+  badgeColor: rose
+- name: Akismet
+  avatar: https://ts4.tc.mm.bing.net/th/id/ODF.UkLwYZiFU7TtncLIZZomDw
+  description: 保持评论区干净整洁的小助手
+  url: https://akismet.com/
+  category: 评论服务
+  id: SRV007
+  badge: 反垃圾评论
+  badgeIcon: lucide:trash
+  badgeColor: sky
+- name: GitHub
+  avatar: https://github.githubassets.com/favicons/favicon.svg
+  description: 全球最大的开源社区
+  url: https://github.com
+  category: 代码托管
+  id: SRV008
+  badge: 开源项目首选
+  badgeIcon: lucide:code
+  badgeColor: sky
+- name: InfinityFree
+  avatar: https://api.iconify.design/simple-icons/infinityfree.svg
+  description: 免费托管WordPress和其他网站
+  url: https://www.infinityfree.com
+  category: 开发工具
+  id: SRV009
+  badge: 免费托管服务
+  badgeIcon: lucide:server
+  badgeColor: amber

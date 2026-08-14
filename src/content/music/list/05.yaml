@@ -1,0 +1,5 @@
+# 播放列表05：自定义
+name: 自定义
+songs:
+  - index: "zhoujielun"
+    provider: custom

@@ -1,0 +1,40 @@
+# 相册02：蕾塞头像
+id: 8e3d6f9a
+date: '2024-07-15'
+event: 电锯人
+title: 蕾塞头像
+description: 蕾塞头像收集
+icon: 💥
+photos:
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/ACPZpnhV.png
+  variant: 1x1
+  title: Reze01
+  description: One
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/Xl16Hugp.png
+  variant: 1x1
+  title: Reze02
+  description: Two
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/S1bQntz7.png
+  variant: 1x1
+  title: Reze03
+  description: Three
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/mEcySA90.png
+  variant: 1x1
+  title: Reze04
+  description: Four
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/E0s2XTG3.png
+  variant: 1x1
+  title: Reze05
+  description: Five
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/8LrckBWX.png
+  variant: 1x1
+  title: Reze06
+  description: Six
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/ugQ6XHS7.png
+  variant: 1x1
+  title: Reze07
+  description: Seven
+- src: https://img.131714.xyz/file/blog/Albums/%E8%95%BE%E5%A1%9E/4RvA9WQm.png
+  variant: 1x1
+  title: Reze08
+  description: Eight

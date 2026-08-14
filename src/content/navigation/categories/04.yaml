@@ -1,0 +1,40 @@
+# 导航分组04：Useful Resources
+category: Useful Resources
+icon: lucide:bookmark
+navigations:
+- name: Astro
+  avatar: https://api.iconify.design/skill-icons/astro.svg
+  description: Astro是一个现代化的静态网站生成器
+  url: https://docs.astro.build
+  category: 博客技术栈
+  id: RES001
+  badge: 前端框架
+  badgeIcon: lucide:layout
+  badgeColor: sky
+- name: Tailwind
+  avatar: https://api.iconify.design/devicon/tailwindcss.svg
+  description: Tailwind CSS是一个功能类优先的CSS框架
+  url: https://tailwindcss.com/docs
+  category: 博客技术栈
+  id: RES002
+  badge: CSS 框架
+  badgeIcon: lucide:file-code-2
+  badgeColor: sky
+- name: DaisyUI
+  avatar: https://api.iconify.design/logos/daisyui-icon.svg
+  description: DaisyUI是一个基于Tailwind CSS的组件库
+  url: https://daisyui.com/components/
+  category: 博客技术栈
+  id: RES003
+  badge: Tailwind 组件库
+  badgeIcon: lucide:box
+  badgeColor: rose
+- name: TypeScript
+  avatar: https://api.iconify.design/skill-icons/typescript.svg
+  description: TypeScript是JavaScript的超集
+  url: https://www.typescriptlang.org/docs/handbook/intro.html
+  category: 博客技术栈
+  id: RES004
+  badge: JavaScript 超集
+  badgeIcon: lucide:file-code-2
+  badgeColor: sky

@@ -1,0 +1,90 @@
+# 站点配置 + 用户信息
+# 对应原 ryuchan.config.yaml 的 site.* 与 user.*（不含 site.pages / site.menu / site.icp，页面标题在各模块 config.yaml，备案在 footer/config.yaml）
+# 前端读取：config.site.tab / config.site.theme / config.user.name / config.user.avatar 等
+
+site:
+  tab: RyuChan
+  title: RyuChan
+  title_type: image
+  # title_type 为 image 时，导航栏用这张图代替文字标题
+  title_image: /logo.png
+  description: 🌸 轻盈、优雅、纯净 —— 用文字与图片记录生活与创意
+  language: zh
+  favicon: /favicon.ico
+  theme:
+    light: garden
+    dark: dracula
+    code: snazzy-light
+  date_format: ddd MMM DD YYYY
+  banner:
+    enableRandom: true
+    randomUrl: https://t.alcy.cc/ycy
+    randomCount: 5
+    height: 70vh
+    images:
+      - https://tc.alcy.cc/q/20250908/b2d656670551cb9ea6eda7b46b6c8ec0.webp
+  # 顶部导航菜单（顺序即展示顺序，svg 为 Iconify 图标名）
+  menu:
+    - id: write
+      text: 写作
+      href: /write
+      svg: material-symbols:edit-square-outline-rounded
+      target: _self
+    - id: navigation
+      text: 导航
+      href: /navigation
+      svg: material-symbols:explore-outline
+      target: _self
+    - id: anime
+      text: 追番
+      href: /anime
+      svg: material-symbols:movie-outline
+      target: _self
+    - id: album
+      text: 相册
+      href: /album
+      svg: material-symbols:photo-library-outline-rounded
+      target: _self
+    - id: music
+      text: 音乐
+      href: /music
+      svg: material-symbols:music-note-rounded
+      target: _self
+    - id: project
+      text: 项目
+      href: /project
+      svg: material-symbols:code-blocks-outline
+      target: _self
+    - id: friend
+      text: 友人帐
+      href: /friend
+      svg: material-symbols:supervisor-account-outline-rounded
+      target: _self
+
+user:
+  name: KoBariDev
+  description: Ciallo～(∠・ω<)⌒★
+  site: https://hub.131714.xyz
+  avatar: /profile.png
+  qr_wechat: /WeChat.jpg
+  qr_alipay: /Alipay.jpg
+  # 侧边栏社交图标（页脚的那组在 footer/config.yaml）
+  sidebar:
+    social:
+      - href: https://github.com/kobaridev
+        ariaLabel: Github
+        title: Github
+        svg: ri:github-line
+      - href: https://space.bilibili.com/1536411565
+        ariaLabel: BiliBili
+        title: BiliBili
+        svg: ri:bilibili-line
+      - href: >-
+          https://www.douyin.com/user/MS4wLjABAAAAeO0sqJYUgh1a26GkVPtS2yv_IOODjeqvtl4KSjvsntg?from_tab_name=main
+        ariaLabel: Douyin
+        title: Douyin
+        svg: ri:tiktok-line
+      - href: https://weibo.com/u/7579913510
+        title: Weibo
+        ariaLabel: Weibo
+        svg: ri:weibo-fill

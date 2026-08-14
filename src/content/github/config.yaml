@@ -1,0 +1,9 @@
+# GitHub App 认证配置（敏感信息）
+# owner/repo: 前端仓（RyuChan）
+# appId/encryptKey: GitHub App 凭证，建议加密存储
+# 前端 ConfigPage.tsx / push-blog.ts 使用此配置进行 GitHub API 操作
+owner: kobaridev
+repo: RyuChan
+branch: main
+appId: 2409511
+encryptKey: KoBariDevYa

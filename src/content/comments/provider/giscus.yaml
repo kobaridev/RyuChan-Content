@@ -1,0 +1,11 @@
+# Giscus 评论配置（基于 GitHub Discussions）
+repo: kobaridev/gsc
+repoId: R_kgDOPTM-mA
+category: General
+categoryId: DIC_kwDOPTM-mM4CtcFq
+mapping: pathname
+lang: zh-CN
+inputPosition: top
+reactionsEnabled: '1'
+emitMetadata: '0'
+loading: lazy

@@ -1,0 +1,8 @@
+# 追番模块元数据
+# title/subtitle: 追番页标题和副标题（来自 site.pages.anime）
+# provider: 启用的数据源（bilibili/tmdb），实际参数在 provider/ 目录
+title: 追番
+provider:
+- bilibili: Alias bilibili
+- tmdb: TMDB
+subtitle: 记录和分享我喜欢的动漫作品

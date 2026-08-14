@@ -1,0 +1,5 @@
+# 播放列表01：我的喜欢
+name: 我的喜欢
+songs:
+  - index: "17933567326"
+    provider: netease

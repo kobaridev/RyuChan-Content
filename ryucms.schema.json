@@ -1,0 +1,203 @@
+{
+  "$schema": "https://ryucms.dev/schemas/1.0.json",
+  "version": "1.0",
+  "assets": {
+    "mediaDir": "assets/media",
+    "brandDir": "assets/brand",
+    "publicBase": "/",
+    "note": "构建时 assets/media → public/image，assets/brand → public/ 根；文章引用统一写 /image/xxx.webp"
+  },
+  "collections": [
+    {
+      "id": "blog",
+      "label": "博客文章 (Markdown)",
+      "match": "^src/content/blog/src/.+\\.md$",
+      "type": "md",
+      "config": "src/content/blog/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["title", "description", "pubDate"],
+        "properties": {
+          "slug": {"type": "string", "title": "slug"},
+          "title": {"type": "string", "title": "标题"},
+          "description": {"type": "string", "title": "描述"},
+          "pubDate": {
+            "type": "string",
+            "title": "发布日期",
+            "description": "可被 Date 解析的写法，如 2025-04-15T00:00 或 Jul 01 2024"
+          },
+          "updated": {"type": "string", "title": "更新日期"},
+          "image": {"type": "string", "format": "uri-reference", "title": "封面图"},
+          "badge": {"type": "string", "title": "角标"},
+          "draft": {"type": "boolean", "title": "草稿", "default": false},
+          "categories": {"type": "array", "items": {"type": "string"}, "title": "分类"},
+          "tags": {"type": "array", "items": {"type": "string"}, "title": "标签"}
+        }
+      },
+      "create": {
+        "hint": "生成 src/content/blog/src/ 下的 .md 文件，一条集录一篇文章",
+        "path": "src/content/blog/src/{{slug}}.md",
+        "slugFrom": "title"
+      }
+    },
+    {
+      "id": "blog-mdx",
+      "label": "博客文章 (MDX)",
+      "match": "^src/content/blog/src/.+\\.mdx$",
+      "type": "mdx",
+      "config": "src/content/blog/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["title", "description", "pubDate"],
+        "properties": {
+          "slug": {"type": "string", "title": "slug"},
+          "title": {"type": "string", "title": "标题"},
+          "description": {"type": "string", "title": "描述"},
+          "pubDate": {
+            "type": "string",
+            "title": "发布日期",
+            "description": "可被 Date 解析的写法，如 2022-07-02T00:00 或 07 12 2024"
+          },
+          "updated": {"type": "string", "title": "更新日期"},
+          "image": {"type": "string", "format": "uri-reference", "title": "封面图"},
+          "badge": {"type": "string", "title": "角标"},
+          "draft": {"type": "boolean", "title": "草稿", "default": false},
+          "categories": {"type": "array", "items": {"type": "string"}, "title": "分类"},
+          "tags": {"type": "array", "items": {"type": "string"}, "title": "标签"}
+        }
+      },
+      "create": {
+        "hint": "生成 src/content/blog/src/ 下的 .mdx 文件；正文可使用前端仓 src/components/mdx 下的组件",
+        "path": "src/content/blog/src/{{slug}}.mdx",
+        "slugFrom": "title"
+      }
+    },
+    {
+      "id": "friends",
+      "label": "友链",
+      "match": "^src/content/friends/list/.+\\.yaml$",
+      "type": "yaml",
+      "config": "src/content/friends/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "name": {"type": "string", "title": "站点名称"},
+          "avatar": {"type": "string", "format": "uri-reference", "title": "头像"},
+          "description": {"type": "string", "title": "描述"},
+          "url": {"type": "string", "format": "uri-reference", "title": "链接"},
+          "badge": {"type": "string", "title": "标签", "examples": ["邻居", "室友"]}
+        }
+      },
+      "create": {
+        "hint": "一条友链一个文件，编号格式 01.yaml、02.yaml ...，按编号排序"
+      }
+    },
+    {
+      "id": "projects",
+      "label": "项目",
+      "match": "^src/content/project/src/.+\\.yaml$",
+      "type": "yaml",
+      "config": "src/content/project/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["name", "url"],
+        "properties": {
+          "name": {"type": "string", "title": "项目名称"},
+          "avatar": {"type": "string", "format": "uri-reference", "title": "图标"},
+          "description": {"type": "string", "title": "描述"},
+          "url": {"type": "string", "format": "uri-reference", "title": "链接"},
+          "badge": {"type": "string", "title": "分类标签", "examples": ["Blog", "ImgBed", "Media", "Code"]}
+        }
+      },
+      "create": {
+        "hint": "一个项目一个文件，编号格式 01.yaml、02.yaml ...，按编号排序"
+      }
+    },
+    {
+      "id": "navigation",
+      "label": "网站导航",
+      "match": "^src/content/navigation/categories/.+\\.yaml$",
+      "type": "yaml",
+      "config": "src/content/navigation/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["category", "navigations"],
+        "properties": {
+          "category": {"type": "string", "title": "分组名称"},
+          "navigations": {
+            "type": "array",
+            "title": "站点条目",
+            "items": {
+              "type": "object",
+              "required": ["name", "url", "category"],
+              "properties": {
+                "name": {"type": "string", "title": "站点名称"},
+                "avatar": {"type": "string", "format": "uri-reference", "title": "图标"},
+                "description": {"type": "string", "title": "描述"},
+                "url": {"type": "string", "format": "uri-reference", "title": "链接"},
+                "category": {"type": "string", "title": "所属分类"},
+                "id": {"type": "string", "title": "编号", "description": "如 DEV001"},
+                "badge": {"type": "string", "title": "角标文字"},
+                "badgeIcon": {"type": "string", "title": "角标图标", "description": "Iconify 图标名"},
+                "badgeColor": {"type": "string", "title": "角标颜色", "description": "颜色名或 #RRGGBB"}
+              }
+            }
+          }
+        }
+      },
+      "create": {
+        "hint": "一个分组一个文件，编号格式 01.yaml ...，文件内 navigations 数组存该分组的条目"
+      }
+    },
+    {
+      "id": "albums",
+      "label": "相册",
+      "match": "^src/content/album/categories/.+\\.yaml$",
+      "type": "yaml",
+      "config": "src/content/album/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": ["date", "title", "photos"],
+        "properties": {
+          "date": {"type": "string", "format": "date", "title": "日期"},
+          "title": {"type": "string", "title": "标题"},
+          "description": {"type": "string", "title": "描述"},
+          "icon": {"type": "string", "title": "图标 Emoji"},
+          "photos": {
+            "type": "array",
+            "title": "照片",
+            "items": {
+              "type": "object",
+              "required": ["src", "variant"],
+              "properties": {
+                "src": {"type": "string", "format": "uri-reference", "title": "图片地址"},
+                "variant": {
+                  "type": "string",
+                  "enum": ["1x1", "4x5", "4x3", "9x16"],
+                  "title": "比例",
+                  "default": "1x1"
+                },
+                "title": {"type": "string", "title": "标题"},
+                "description": {"type": "string", "title": "描述"}
+              }
+            }
+          }
+        }
+      },
+      "create": {
+        "hint": "一个相册（一组照片）一个文件，编号格式 01.yaml ...，文件内 photos 数组存该相册的照片"
+      }
+    },
+    {
+      "id": "site-config",
+      "label": "站点配置",
+      "match": "^src/content/config\\.yaml$",
+      "type": "yaml",
+      "create": {
+        "enabled": false,
+        "hint": "站点总配置，直接在此文件内编辑"
+      }
+    }
+  ]
+}

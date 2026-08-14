@@ -1,0 +1,12 @@
+# 博客模块元数据
+# title/subtitle: 博客页标题和副标题（来自 site.pages.home）
+# typewriterTexts: 首页打字机动画文本
+# pageSize: 文章列表每页显示条数（来自 site.blog.pageSize）
+title: RyuChan's Blog
+pageSize: 8
+subtitle: 欲买桂花同载酒，终不似，少年游！
+typewriterTexts:
+- 🌸 欲买桂花同载酒，终不似，少年游！
+- 🌸 花有重开日，人无再少年！
+- 🌿 记录生活的点滴，分享美好的瞬间！
+- 📚 纸上得来终觉浅，绝知此事要躬行！
