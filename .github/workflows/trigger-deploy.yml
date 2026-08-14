@@ -2,7 +2,7 @@ name: Trigger Frontend Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
 
 jobs:
   dispatch:
@@ -10,8 +10,9 @@ jobs:
     steps:
       - name: Trigger frontend deploy
         run: |
+          BRANCH="${{ secrets.FRONTEND_BRANCH }}"
           curl -s -X POST \
             -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             "https://api.github.com/repos/${{ secrets.FRONTEND_REPO_OWNER }}/${{ secrets.FRONTEND_REPO_NAME }}/dispatches" \
-            -d '{"event_type": "content-update"}'
+            -d "{\"event_type\":\"content-update\",\"client_payload\":{\"branch\":\"${BRANCH}\"}}"
