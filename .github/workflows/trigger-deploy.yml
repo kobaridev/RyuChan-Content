@@ -8,11 +8,30 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug - Show target info
+        run: |
+          echo "Target: ${{ secrets.FRONTEND_REPO_OWNER }}/${{ secrets.FRONTEND_REPO_NAME }}"
+          echo "Branch: ${{ secrets.FRONTEND_BRANCH }}"
+          echo "Token length: ${#DISPATCH_TOKEN}"
+
       - name: Trigger frontend deploy
         run: |
           BRANCH="${{ secrets.FRONTEND_BRANCH }}"
-          curl -s -X POST \
-            -H "Authorization: token ${{ secrets.DISPATCH_TOKEN }}" \
+          OWNER="${{ secrets.FRONTEND_REPO_OWNER }}"
+          REPO="${{ secrets.FRONTEND_REPO_NAME }}"
+          TOKEN="${{ secrets.DISPATCH_TOKEN }}"
+
+          HTTP_CODE=$(curl -s -o /tmp/response.json -w "%{http_code}" -X POST \
+            -H "Authorization: token ${TOKEN}" \
             -H "Accept: application/vnd.github.v3+json" \
-            "https://api.github.com/repos/${{ secrets.FRONTEND_REPO_OWNER }}/${{ secrets.FRONTEND_REPO_NAME }}/dispatches" \
-            -d "{\"event_type\":\"content-update\",\"client_payload\":{\"branch\":\"${BRANCH}\"}}"
+            "https://api.github.com/repos/${OWNER}/${REPO}/dispatches" \
+            -d "{\"event_type\":\"content-update\",\"client_payload\":{\"branch\":\"${BRANCH}\"}}")
+
+          echo "HTTP Status: ${HTTP_CODE}"
+          cat /tmp/response.json
+
+          if [ "${HTTP_CODE}" != "204" ]; then
+            echo "::error::Dispatch failed with status ${HTTP_CODE}"
+            exit 1
+          fi
+          echo "::notice::Dispatch succeeded! Triggered ${OWNER}/${REPO} branch=${BRANCH}"
