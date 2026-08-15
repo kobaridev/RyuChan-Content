@@ -16,22 +16,61 @@
       "config": "src/content/blog/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["title", "description", "pubDate"],
+        "required": [
+          "title",
+          "description",
+          "pubDate"
+        ],
         "properties": {
-          "slug": {"type": "string", "title": "slug"},
-          "title": {"type": "string", "title": "标题"},
-          "description": {"type": "string", "title": "描述"},
+          "slug": {
+            "type": "string",
+            "title": "slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "标题"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
           "pubDate": {
             "type": "string",
             "title": "发布日期",
             "description": "可被 Date 解析的写法，如 2025-04-15T00:00 或 Jul 01 2024"
           },
-          "updated": {"type": "string", "title": "更新日期"},
-          "image": {"type": "string", "format": "uri-reference", "title": "封面图"},
-          "badge": {"type": "string", "title": "角标"},
-          "draft": {"type": "boolean", "title": "草稿", "default": false},
-          "categories": {"type": "array", "items": {"type": "string"}, "title": "分类"},
-          "tags": {"type": "array", "items": {"type": "string"}, "title": "标签"}
+          "updated": {
+            "type": "string",
+            "title": "更新日期"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "封面图"
+          },
+          "badge": {
+            "type": "string",
+            "title": "角标"
+          },
+          "draft": {
+            "type": "boolean",
+            "title": "草稿",
+            "default": false
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "分类"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "标签"
+          }
         }
       },
       "create": {
@@ -48,22 +87,61 @@
       "config": "src/content/blog/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["title", "description", "pubDate"],
+        "required": [
+          "title",
+          "description",
+          "pubDate"
+        ],
         "properties": {
-          "slug": {"type": "string", "title": "slug"},
-          "title": {"type": "string", "title": "标题"},
-          "description": {"type": "string", "title": "描述"},
+          "slug": {
+            "type": "string",
+            "title": "slug"
+          },
+          "title": {
+            "type": "string",
+            "title": "标题"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
           "pubDate": {
             "type": "string",
             "title": "发布日期",
             "description": "可被 Date 解析的写法，如 2022-07-02T00:00 或 07 12 2024"
           },
-          "updated": {"type": "string", "title": "更新日期"},
-          "image": {"type": "string", "format": "uri-reference", "title": "封面图"},
-          "badge": {"type": "string", "title": "角标"},
-          "draft": {"type": "boolean", "title": "草稿", "default": false},
-          "categories": {"type": "array", "items": {"type": "string"}, "title": "分类"},
-          "tags": {"type": "array", "items": {"type": "string"}, "title": "标签"}
+          "updated": {
+            "type": "string",
+            "title": "更新日期"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "封面图"
+          },
+          "badge": {
+            "type": "string",
+            "title": "角标"
+          },
+          "draft": {
+            "type": "boolean",
+            "title": "草稿",
+            "default": false
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "分类"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "标签"
+          }
         }
       },
       "create": {
@@ -80,13 +158,37 @@
       "config": "src/content/friends/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["name", "url"],
+        "required": [
+          "name",
+          "url"
+        ],
         "properties": {
-          "name": {"type": "string", "title": "站点名称"},
-          "avatar": {"type": "string", "format": "uri-reference", "title": "头像"},
-          "description": {"type": "string", "title": "描述"},
-          "url": {"type": "string", "format": "uri-reference", "title": "链接"},
-          "badge": {"type": "string", "title": "标签", "examples": ["邻居", "室友"]}
+          "name": {
+            "type": "string",
+            "title": "站点名称"
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "头像"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "链接"
+          },
+          "badge": {
+            "type": "string",
+            "title": "标签",
+            "examples": [
+              "邻居",
+              "室友"
+            ]
+          }
         }
       },
       "create": {
@@ -101,13 +203,39 @@
       "config": "src/content/project/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["name", "url"],
+        "required": [
+          "name",
+          "url"
+        ],
         "properties": {
-          "name": {"type": "string", "title": "项目名称"},
-          "avatar": {"type": "string", "format": "uri-reference", "title": "图标"},
-          "description": {"type": "string", "title": "描述"},
-          "url": {"type": "string", "format": "uri-reference", "title": "链接"},
-          "badge": {"type": "string", "title": "分类标签", "examples": ["Blog", "ImgBed", "Media", "Code"]}
+          "name": {
+            "type": "string",
+            "title": "项目名称"
+          },
+          "avatar": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "图标"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri-reference",
+            "title": "链接"
+          },
+          "badge": {
+            "type": "string",
+            "title": "分类标签",
+            "examples": [
+              "Blog",
+              "ImgBed",
+              "Media",
+              "Code"
+            ]
+          }
         }
       },
       "create": {
@@ -122,25 +250,67 @@
       "config": "src/content/navigation/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["category", "navigations"],
+        "required": [
+          "category",
+          "navigations"
+        ],
         "properties": {
-          "category": {"type": "string", "title": "分组名称"},
+          "category": {
+            "type": "string",
+            "title": "分组名称"
+          },
           "navigations": {
             "type": "array",
             "title": "站点条目",
             "items": {
               "type": "object",
-              "required": ["name", "url", "category"],
+              "required": [
+                "name",
+                "url",
+                "category"
+              ],
               "properties": {
-                "name": {"type": "string", "title": "站点名称"},
-                "avatar": {"type": "string", "format": "uri-reference", "title": "图标"},
-                "description": {"type": "string", "title": "描述"},
-                "url": {"type": "string", "format": "uri-reference", "title": "链接"},
-                "category": {"type": "string", "title": "所属分类"},
-                "id": {"type": "string", "title": "编号", "description": "如 DEV001"},
-                "badge": {"type": "string", "title": "角标文字"},
-                "badgeIcon": {"type": "string", "title": "角标图标", "description": "Iconify 图标名"},
-                "badgeColor": {"type": "string", "title": "角标颜色", "description": "颜色名或 #RRGGBB"}
+                "name": {
+                  "type": "string",
+                  "title": "站点名称"
+                },
+                "avatar": {
+                  "type": "string",
+                  "format": "uri-reference",
+                  "title": "图标"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "描述"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri-reference",
+                  "title": "链接"
+                },
+                "category": {
+                  "type": "string",
+                  "title": "所属分类"
+                },
+                "id": {
+                  "type": "string",
+                  "title": "编号",
+                  "description": "如 DEV001"
+                },
+                "badge": {
+                  "type": "string",
+                  "title": "角标文字"
+                },
+                "badgeIcon": {
+                  "type": "string",
+                  "title": "角标图标",
+                  "description": "Iconify 图标名"
+                },
+                "badgeColor": {
+                  "type": "string",
+                  "title": "角标颜色",
+                  "description": "颜色名或 #RRGGBB"
+                }
               }
             }
           }
@@ -158,28 +328,63 @@
       "config": "src/content/album/config.yaml",
       "schema": {
         "type": "object",
-        "required": ["date", "title", "photos"],
+        "required": [
+          "date",
+          "title",
+          "photos"
+        ],
         "properties": {
-          "date": {"type": "string", "format": "date", "title": "日期"},
-          "title": {"type": "string", "title": "标题"},
-          "description": {"type": "string", "title": "描述"},
-          "icon": {"type": "string", "title": "图标 Emoji"},
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "日期"
+          },
+          "title": {
+            "type": "string",
+            "title": "标题"
+          },
+          "description": {
+            "type": "string",
+            "title": "描述"
+          },
+          "icon": {
+            "type": "string",
+            "title": "图标 Emoji"
+          },
           "photos": {
             "type": "array",
             "title": "照片",
             "items": {
               "type": "object",
-              "required": ["src", "variant"],
+              "required": [
+                "src",
+                "variant"
+              ],
               "properties": {
-                "src": {"type": "string", "format": "uri-reference", "title": "图片地址"},
+                "src": {
+                  "type": "string",
+                  "format": "uri-reference",
+                  "title": "图片地址"
+                },
                 "variant": {
                   "type": "string",
-                  "enum": ["1x1", "4x5", "4x3", "9x16"],
+                  "enum": [
+                    "1x1",
+                    "4x5",
+                    "4x3",
+                    "9x16"
+                  ],
                   "title": "比例",
                   "default": "1x1"
                 },
-                "title": {"type": "string", "title": "标题"},
-                "description": {"type": "string", "title": "描述"}
+                "title": {
+                  "type": "string",
+                  "title": "标题"
+                },
+                "description": {
+                  "type": "string",
+                  "title": "描述"
+                }
               }
             }
           }
@@ -197,6 +402,54 @@
       "create": {
         "enabled": false,
         "hint": "站点总配置，直接在此文件内编辑"
+      }
+    },
+    {
+      "id": "music",
+      "label": "音乐歌单",
+      "match": "^src/content/music/list/.+\\.yaml$",
+      "type": "yaml",
+      "config": "src/content/music/config.yaml",
+      "schema": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "歌单名称"
+          },
+          "songs": {
+            "type": "array",
+            "title": "歌曲列表",
+            "items": {
+              "type": "object",
+              "required": [
+                "index",
+                "provider"
+              ],
+              "properties": {
+                "index": {
+                  "type": "string",
+                  "title": "歌曲/歌单 ID"
+                },
+                "provider": {
+                  "type": "string",
+                  "title": "来源",
+                  "enum": [
+                    "netease",
+                    "tencent",
+                    "custom"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "create": {
+        "hint": "一个播放列表一个文件，编号格式 01.yaml、02.yaml ...，按编号排序。provider 为 custom 时 index 指向 src/content/music/custom/ 下的文件名前缀"
       }
     }
   ]

@@ -1,0 +1,5 @@
+# 播放列表06：古风精选（自定义）
+name: 古风精选
+songs:
+  - index: "02-gufeng"
+    provider: custom

@@ -1,0 +1,5 @@
+# 播放列表08：民谣治愈（自定义）
+name: 民谣治愈
+songs:
+  - index: "04-quiet"
+    provider: custom

@@ -1,0 +1,5 @@
+# 播放列表07：ACG精选（自定义）
+name: ACG精选
+songs:
+  - index: "03-acg"
+    provider: custom

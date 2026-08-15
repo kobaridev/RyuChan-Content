@@ -1,5 +1,5 @@
-# 播放列表05：自定义
-name: 自定义
+# 播放列表05：周杰伦精选（自定义）
+name: 周杰伦精选
 songs:
-  - index: "zhoujielun"
+  - index: "01-zhoujielun"
     provider: custom

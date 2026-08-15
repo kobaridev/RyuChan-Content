@@ -61,7 +61,8 @@ ryuchan-content/
 │   │       └── tmdb.yaml                    # TMDB apiKey + listId
 │   ├── music/
 │   │   ├── config.yaml                      # 音乐页标题/副标题 + Meting API 基址
-│   │   └── list/                            # 一个播放列表一个文件（songs 用 index+provider 标识来源）
+│   │   ├── list/                              # 播放列表索引，一个文件一个歌单
+│   │   └── custom/                            # 自定义歌单数据，文件名格式 ID.yaml，含完整歌曲信息
 │   │       ├── 01.yaml
 │   │       └── ...
 │   └── comments/
@@ -98,7 +99,8 @@ ryuchan-content/
 | `src/content/user/config.yaml` | `config.user.*` |
 | `src/content/github/config.yaml` | `config.github.*` |
 | `src/content/blog/config.yaml` | `config.site.pages.home.*` + `config.site.blog` |
-| `src/content/music/list/*.yaml` | 合成 → `src/data/music.json` |
+| `src/content/music/list/*.yaml` | 合成 → `ryuchan.config.yaml`（playlists 配置） |
+| `src/content/music/custom/*.yaml` | 自定义歌单数据，由 `fetch-music-duration.mjs` 读取并注入 `music.json` |
 | `src/content/footer/config.yaml` | 注入前端页脚（社交链接 + 备案信息） |
 | `src/content/comments/provider/*.yaml` | Astro 构建时读取 |
 | `assets/media/` | `public/image/`（注意：目录名 media，引用路径 `/image/`） |
@@ -145,7 +147,7 @@ ryuchan-content/
 - `src/i18n/translations.yaml`（多语言字典）
 - `public/pagefind/`（搜索索引）
 
-Meting API 统一处理音乐数据请求，`music/config.yaml` 中的 `api` 字段提供 API 基址，`list/` 下的每个文件是一个播放列表，`songs` 数组里每条用 `index`（歌单 ID 或自定义标识）+ `provider`（`netease` / `tencent` / `custom`）标识来源。`provider/` 目录已删除——平台参数由 Meting API 内部处理，不需要本地配置。，走站内 `/about-edit`、`/projects-edit` 页面通过 GitHub API 编辑。它们还没有内容化，暂时不在本仓库管理范围内。
+Meting API 统一处理音乐数据请求，`music/config.yaml` 中的 `api` 字段提供 API 基址。`list/` 下一个文件对应一个播放列表，`songs` 数组里每条用 `index`（歌单 ID 或自定义标识）+ `provider`（`netease` / `tencent` / `custom`）标识来源。`custom/` 目录下存放自定义歌单的完整歌曲数据（title、artist、cover、url、lrc、duration），`provider: custom` 的 `index` 指向 `custom/` 下的文件名前缀（不含 `.yaml` 后缀）。构建时 `fetch-music-duration.mjs` 会将自定义数据注入 `music.json`，无需在线拉取。`provider/` 目录已删除——平台参数由 Meting API 内部处理，不需要本地配置。，走站内 `/about-edit`、`/projects-edit` 页面通过 GitHub API 编辑。它们还没有内容化，暂时不在本仓库管理范围内。
 
 ## 迁移到位后前端仓需要改的地方
 
