@@ -1,29 +1,17 @@
-# About 页面元数据
-# 用于渲染个人简介、社交链接、GitHub stats、技术栈等
-
-# 页面元数据（用于 BaseLayout 的 title 和 subtitle）
 page:
   title: About Me
   subtitle: 一个热爱生活与技术的普通人！
-
-# 个人基本信息
 name: KoBariDev
-displayName: Xiaozhang          # 显示名称（可选，默认用 name）
-title: "全栈开发者 & 开源爱好者"
+displayName: Xiaozhang
+title: 全栈开发者 & 开源爱好者
 description:
-  - "👋 你好！我是 KoBariDev，一名热爱技术的全栈开发者。"
-  - "💻 专注于前端开发和用户体验设计，喜欢探索新技术，享受用代码解决问题的过程。"
-  - "🌱 坚信开源精神，积极参与开源项目，相信技术可以让世界变得更美好。"
-
-# 头像：优先用本地文件，备用 GitHub 头像
+  - 👋 你好！我是 KoBariDev，一名热爱技术的全栈开发者。
+  - 💻 专注于前端开发和用户体验设计，喜欢探索新技术，享受用代码解决问题的过程。
+  - 🌱 坚信开源精神，积极参与开源项目，相信技术可以让世界变得更美好。
 avatar: /profile.png
 githubAvatar: https://github.com/kobaridev.png
-
-# GitHub
 githubUsername: kobaridev
 githubRepo: RyuChan
-
-# 社交链接（侧边栏展示的按钮）
 links:
   - href: https://github.com/kobaridev
     ariaLabel: Github
@@ -37,8 +25,6 @@ links:
     ariaLabel: Email
     title: Email
     icon: lucide:mail
-
-# 技术栈（展示网格）
 techStack:
   - name: Astro
     icon: simple-icons:astro

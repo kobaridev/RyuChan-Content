@@ -1,6 +1,5 @@
-# 项目01：HomePage 个人主页
-name: HomePage
-avatar: https://img.131714.xyz/file/Avatar/1753366550828_avatar1.jpg
-description: 🏠 小张的个人主页！
-url: https://131714.xyz
-badge: Profile
+name: Blog
+avatar: https://blog.131714.xyz/images/avatar.png
+description: 个人Blog，发布文章~ (ﾉ>ω<)ﾉ
+url: https://hub.131714.xyz
+badge: Blog
