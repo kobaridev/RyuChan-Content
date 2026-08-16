@@ -1,6 +1,5 @@
-# 项目02：Blog 个人博客
-name: Blog
-avatar: https://blog.131714.xyz/images/avatar.png
-description: 个人Blog，发布文章~ (ﾉ>ω<)ﾉ
-url: https://hub.131714.xyz
-badge: Blog
+name: ImgBed
+avatar: https://img.131714.xyz/file/Avatar/1753366548855_avatar3.jpg
+description: 🌄 Cloudflare-ImgBed + Telegram实现的无限存储图床~
+url: https://img.131714.xyz
+badge: ImgBed
