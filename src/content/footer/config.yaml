@@ -1,23 +1,19 @@
-# 页脚配置：社交链接与备案信息
-# social: 页脚展示的社交图标链接（来自原 user.footer.social）
-# icp / icp_link: 网站备案号（来自原 site.icp）
-# 前端 Footer.astro 读取：config.footer.social / config.footer.icp
 social:
-- href: https://github.com/kobaridev
-  ariaLabel: Github
-  title: Github
-  svg: ri:github-line
-- href: https://space.bilibili.com/1536411565
-  ariaLabel: BiliBili
-  title: BiliBili
-  svg: ri:bilibili-line
-- href: https://x.com/xzz_ya
-  ariaLabel: X(twitter)
-  title: X(twitter)
-  svg: ri:twitter-line
-- href: https://t.me/xzz_ya
-  ariaLabel: Telegram
-  title: Telegram
-  svg: ri:telegram-line
+  - href: https://github.com/kobaridev
+    ariaLabel: Github
+    title: Github
+    svg: ri:github-line
+  - href: https://space.bilibili.com/1536411565
+    ariaLabel: BiliBili
+    title: BiliBili
+    svg: ri:bilibili-line
+  - href: https://x.com/xzz_ya
+    ariaLabel: X(twitter)
+    title: X(twitter)
+    svg: ri:twitter-line
+  - href: https://t.me/xzz_ya
+    ariaLabel: Telegram
+    title: Telegram
+    svg: ri:telegram-line
 icp: 萌ICP备20261117号
 icp_link: https://icp.gov.moe/?keyword=20261117
