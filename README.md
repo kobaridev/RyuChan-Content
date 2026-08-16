@@ -1,11 +1,16 @@
-﻿# ryuchan-content
+# ryuchan-content
 
-RyuChan 博客的内容仓库。这里只放**内容**：文章、结构化数据、站点配置、文章配图、分析脚本。前端代码（Astro 模板、组件、样式、构建配置）在另一个仓库 `RyuChan` 中。
+RyuChan 博客的内容仓库。这里只放**内容**：文章、结构化数据、站点配置、文章配图、分析脚本。前端代码（Astro 模板、组件、样式、构建配置）在仓库 `RyuChan` 中，可选的可视化 CMS 管理端在仓库 `RyuChan-CMS` 中。
 
-拆分的目的是让写文章和改代码互不干扰：内容仓的提交历史干净，可以被 RyuCMS 管理端直接编辑，也可以单独设为私有。
+拆分的目的是让写文章和改代码互不干扰：内容仓的提交历史干净，可以被 RyuChan-CMS 管理端直接编辑，也可以单独设为私有。
 
-前端仓：`RyuChan`（`D:\Blog\RyuChan`）
-内容仓：`RyuChan-Content`（`D:\Blog\ryuchan-content`）
+## 系统组成
+
+| 仓库 | 职责 | 地址 |
+|------|------|------|
+| **RyuChan**（前端仓） | Astro 静态博客展示 | [kobaridev/RyuChan](https://github.com/kobaridev/RyuChan) |
+| **RyuChan-Content**（内容仓） | 本文档所在仓库，存储所有内容 | 当前仓库 |
+| **RyuChan-CMS**（管理端·可选） | React 可视化内容管理后台（可选） | [kobaridev/RyuChan-CMS](https://github.com/kobaridev/RyuChan-CMS) |
 
 ## 目录结构
 
@@ -16,7 +21,6 @@ ryuchan-content/
 │   │   ├── config.yaml                      # 页脚：社交链接与备案信息
 │   ├── site/config.yaml                   # 站点通用配置：标题/描述/主题/favicon/备案/banner
 │   ├── user/config.yaml                   # 用户信息：头像/描述/社交链接/收款码
-│   ├── github/config.yaml                 # GitHub App 认证（敏感，建议加密存储）
 │   ├── blog/
 │   │   ├── config.yaml                      # 博客模块标题/副标题 + 每页文章条数 pageSize
 │   │   └── src/                             # 文章，一条集录一篇文章
@@ -81,7 +85,7 @@ ryuchan-content/
 │       └── qrcode/
 │           ├── Alipay.jpg
 │           └── WeChat.jpg
-└── ryucms.schema.json                       # RyuCMS 管理端的 collection 定义
+└── ryucms.schema.json                       # RyuChan-CMS 管理端的 collection 定义
 ```
 
 ## 前端仓如何消费
@@ -97,7 +101,6 @@ ryuchan-content/
 | `src/content/album/categories/*.yaml` | 合成 → `src/data/albums.json` |
 | `src/content/site/config.yaml` | `config.site.*`（除 pages/menu 外） |
 | `src/content/user/config.yaml` | `config.user.*` |
-| `src/content/github/config.yaml` | `config.github.*` |
 | `src/content/blog/config.yaml` | `config.site.pages.home.*` + `config.site.blog` |
 | `src/content/music/list/*.yaml` | 合成 → `ryuchan.config.yaml`（playlists 配置） |
 | `src/content/music/custom/*.yaml` | 自定义歌单数据，由 `fetch-music-duration.mjs` 读取并注入 `music.json` |
@@ -124,7 +127,7 @@ ryuchan-content/
 
 ### 友链、项目、相册、分组
 
-每个条目单独一个文件（`01.yaml`、`02.yaml` ...）。RyuCMS 按文件路径识别，编号决定排序。
+每个条目单独一个文件（`01.yaml`、`02.yaml` ...）。可手动维护，也可通过 RyuChan 内置的 `/write`、`/config` 等页面或 RyuChan-CMS 管理端编辑。
 
 相册 `categories/01.yaml` 是一个相册的元数据 + 照片列表，不是单个照片。照片在 `photos` 数组里，字段 `src` / `title` / `description` / `variant`（`1x1`/`4x3`/`4x5`/`9x16`）。导航里 `navigations` 是数组，每条 `name` / `url` / `avatar` / `description` / `badge` 等。
 
@@ -133,10 +136,11 @@ ryuchan-content/
 各模块的 `config.yaml` 对应原 `ryuchan.config.yaml` 的不同层级：
 - `site/` → `site` 下通用字段（标题、主题、favicon、备案、banner）
 - `user/` → `user` 下个人信息与社交链接
-- `github/` → `github` 认证配置
 - `blog/`、`album/` 等 → `site.pages.*` 对应页面标题/副标题
 
 本地资源引用（`/logo.png`、`/profile.png`、`/Alipay.jpg` 等）保持不变，图片文件在 `assets/brand/` 里。
+
+> GitHub App 认证凭据（`appId`、`encryptKey` 等）不在内容仓管理，请通过前端仓的环境变量配置：`PUBLIC_GITHUB_APP_ID`、`PUBLIC_GITHUB_ENCRYPT_KEY`。
 
 ## 不属于这里的东西
 
@@ -147,17 +151,7 @@ ryuchan-content/
 - `src/i18n/translations.yaml`（多语言字典）
 - `public/pagefind/`（搜索索引）
 
-Meting API 统一处理音乐数据请求，`music/config.yaml` 中的 `api` 字段提供 API 基址。`list/` 下一个文件对应一个播放列表，`songs` 数组里每条用 `index`（歌单 ID 或自定义标识）+ `provider`（`netease` / `tencent` / `custom`）标识来源。`custom/` 目录下存放自定义歌单的完整歌曲数据（title、artist、cover、url、lrc、duration），`provider: custom` 的 `index` 指向 `custom/` 下的文件名前缀（不含 `.yaml` 后缀）。构建时 `fetch-music-duration.mjs` 会将自定义数据注入 `music.json`，无需在线拉取。`provider/` 目录已删除——平台参数由 Meting API 内部处理，不需要本地配置。，走站内 `/about-edit`、`/projects-edit` 页面通过 GitHub API 编辑。它们还没有内容化，暂时不在本仓库管理范围内。
-
-## 迁移到位后前端仓需要改的地方
-
-搭好这个骨架之后，前端仓还有几处需要配合修改，都涉及硬编码路径：
-
-1. **`src/content/config.ts`** — 如果用 glob loader 直接读内容仓的 `src/content/blog/src/*.md` 则不需要改路径；如果依赖 prebuild 把文件复制到 `src/content/blog/`，则 prebuild 脚本按上面映射表复制。
-2. **`src/components/write/services/push-blog.ts`**、`delete-blog.ts`、`batch-delete.ts` 以及 **`src/lib/load-blog.ts`** — 写死了 `src/content/blog/${slug}.md|mdx`，且提交目标是前端仓。要改成指向内容仓的 owner/repo 和 `src/content/blog/src/` 前缀。
-3. **`src/components/write/ConfigPage.tsx`** — `ryuchan.config.yaml`、`src/data/music.json`、`public/profile.png`、`public/logo.png` 四个路径指向内容仓相应位置（`music.json` 仍留前端仓）。
-4. **`src/consts.ts`** 的 `GITHUB_CONFIG` — 目前只描述一个仓库，需扩成前端仓 + 内容仓两组配置（owner/repo/branch 分别列出）。
-5. **CI** — 给内容仓的 clone 提供凭据，并在 `prebuild` 里完成同步。
+Meting API 统一处理音乐数据请求，`music/config.yaml` 中的 `api` 字段提供 API 基址。`list/` 下一个文件对应一个播放列表，`songs` 数组里每条用 `index`（歌单 ID 或自定义标识）+ `provider`（`netease` / `tencent` / `custom`）标识来源。`custom/` 目录下存放自定义歌单的完整歌曲数据（title、artist、cover、url、lrc、duration），`provider: custom` 的 `index` 指向 `custom/` 下的文件名前缀（不含 `.yaml` 后缀）。构建时 `fetch-music-duration.mjs` 会将自定义数据注入 `music.json`，无需在线拉取。`provider/` 目录已删除——平台参数由 Meting API 内部处理，不需要本地配置。
 
 ## 构建后内容仓的状态
 
