@@ -397,7 +397,7 @@
     {
       "id": "site-config",
       "label": "站点配置",
-      "match": "^src/content/config\\.yaml$",
+      "match": "^src/content/site/config\\.yaml$",
       "type": "yaml",
       "create": {
         "enabled": false,
